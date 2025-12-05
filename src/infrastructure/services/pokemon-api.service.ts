@@ -17,6 +17,8 @@ export class PokemonApiService implements PokemonRepository {
       `https://pokeapi.co/api/v2/pokemon/${nameOrId}`
     );
 
-    return response.data.abilities.map((a) => a.ability.name);
+    return response.data.abilities
+      .map((a) => a.ability.name)
+      .sort((a, b) => a.localeCompare(b));
   }
 }
